@@ -1,0 +1,115 @@
+@import "../../scss/color";
+@import "../../scss/common";
+
+.main-cnt {
+  @include displayColumn;
+  align-items: center;
+
+  .todo-input-cnt {
+    margin: 10px;
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .todo-input {
+      @include shadow($shadow);
+      border: none;
+      border-radius: 30px;
+      outline: none;
+      line-height: 40px;
+      font-size: 25px;
+      padding: 10px 20px;
+      width: 520px;
+    }
+    .add-icon {
+      @include shadow($shadow);
+      @include transition();
+      border-radius: 50%;
+      color: $lightGreen;
+      background-color: $white;
+
+      cursor: pointer;
+      &:hover {
+        @include hoverShadow($shadow);
+        color: $darkGreen;
+        transform: scale(1.1);
+      }
+      &:active {
+        @include insetShadow($shadow);
+      }
+    }
+  }
+
+  .heading {
+    font-weight: normal;
+    font-size: 20px;
+    padding: 0px 10px;
+    margin-top: 20px;
+  }
+
+  .todo-list {
+    @include displayColumn;
+    @include shadow($shadow);
+    @include overflowY;
+    background-color: $white;
+    margin: 10px;
+    width: 600px;
+    border-radius: 20px;
+    max-height: 300px;
+
+    .single-todo {
+      @include displayCenter;
+      width: 100%;
+      margin: 10px 0px;
+
+      .todo-text {
+        width: 65%;
+        font-size: 20px;
+        padding: 5px 0px;
+        word-break: break-all;
+        display: flex;
+      }
+    }
+  }
+}
+
+.no-todo {
+  align-self: center;
+  font-size: 18px;
+  padding: 20px;
+  font-weight: normal;
+}
+
+.todo-action {
+  width: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  .completed {
+    @include icon($lightGreen, $darkGreen, $shadow);
+  }
+  .edit {
+    @include icon($lightBlue, $darkBlue, $shadow);
+  }
+  .delete {
+    @include icon($lightRed, $darkRed, $shadow);
+  }
+}
+
+.hidden {
+  opacity: 0;
+}
+
+@media screen and (max-device-width: 650px) {
+  .todo-list,
+  .comleted-todo-list,
+  .todo-input-cnt {
+    max-width: 90vw;
+    margin: 0px 20px;
+  }
+  .todo-input {
+    max-width: 80%;
+  }
+  .single-todo-completed {
+    width: 100%;
+  }
+}
