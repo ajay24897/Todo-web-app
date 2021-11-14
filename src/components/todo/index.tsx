@@ -5,11 +5,16 @@ import { IoIosAdd } from "react-icons/io";
 import TodoList from "./TodoList";
 import { COMPLETED, DELETE, EDIT, TOASTMSG } from "../../constants";
 import { capitalizeFirstLetter } from "../../commonFunctions";
+import { StyleAddIcon, StyledInput } from "./styled";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./todo.scss";
 
-const Todo = () => {
+interface Iprops {
+  isDarkMode: Boolean;
+}
+
+const Todo = ({ isDarkMode }: Iprops) => {
   const [todos, setTodos] = useState<string[]>([]);
   const [completedTodos, setcompletedTodos] = useState<string[]>([]);
 
@@ -49,12 +54,13 @@ const Todo = () => {
         newTodo[editId] = todoInput;
         setTodos([...newTodo]);
         setIsEdit(false);
-        toast(TOASTMSG.EDITED);
+        openToast(TOASTMSG.EDITED);
       } else {
         setTodos([...todos, todoInput.trim()]);
-        toast(TOASTMSG.ADDED);
+        openToast(TOASTMSG.ADDED);
       }
       setTodoInput("");
+      inputRef.current?.focus();
     }
   };
 
@@ -75,13 +81,13 @@ const Todo = () => {
       });
       setTodos([...updatedTodo]);
       setcompletedTodos([...completedTodo, ...completedTodos]);
-      toast(TOASTMSG.COMPLETED);
+      openToast(TOASTMSG.COMPLETED);
     } else if (action === DELETE) {
       let updatedTodo = [...todos].filter((item: string, id: number) => {
         return id !== index;
       });
       setTodos([...updatedTodo]);
-      toast(TOASTMSG.DELETED);
+      openToast(TOASTMSG.DELETED);
     } else if (action === EDIT) {
       setIsEdit(true);
       inputRef.current?.focus();
@@ -98,14 +104,20 @@ const Todo = () => {
         }
       );
       setcompletedTodos([...completedTodo]);
-      toast(TOASTMSG.REMOVED);
+      openToast(TOASTMSG.REMOVED);
     }
+  };
+
+  const openToast = (msg: string) => {
+    if (isDarkMode) toast.dark(msg);
+    else toast(msg);
   };
 
   return (
     <div className="main-cnt">
       <div className="todo-input-cnt">
-        <input
+        <StyledInput
+          isDarkMode={isDarkMode}
           value={todoInput}
           className="todo-input"
           placeholder="Enter Todo"
@@ -113,20 +125,27 @@ const Todo = () => {
           onKeyPress={onKeyPress}
           ref={inputRef}
         />
-        <IoIosAdd
-          size={50}
+        <StyleAddIcon
+          isDarkMode={isDarkMode}
           className="add-icon"
           onClick={() => hadelAddClick()}
-        />
+        >
+          <IoIosAdd size="50" />
+        </StyleAddIcon>
       </div>
-
       <TodoList
+        isDarkMode={isDarkMode}
         todos={todos}
         todoAction={todoAction}
         completedTodos={completedTodos}
         completedTodoAction={completedTodoAction}
       />
-      <ToastContainer position="bottom-right" />
+      <ToastContainer
+        position="bottom-center"
+        closeButton={true}
+        autoClose={3000}
+        limit={3}
+      />
     </div>
   );
 };

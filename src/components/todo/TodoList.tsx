@@ -1,6 +1,7 @@
 import { MdOutlineModeEdit } from "react-icons/md";
 import { AiOutlineCheck } from "react-icons/ai";
 import { RiDeleteBinLine } from "react-icons/ri";
+
 import {
   COMPLETED,
   DELETE,
@@ -8,10 +9,12 @@ import {
   NO_COMPLETED_TODO_FOUND,
   NO_TODO_FOUND,
 } from "../../constants";
+import { StyledTodoList } from "./styled";
 
 interface Iprops {
   todos: string[];
   completedTodos: string[];
+  isDarkMode: Boolean;
   todoAction: (action: string, index: number) => void;
   completedTodoAction: (action: string, index: number) => void;
 }
@@ -19,6 +22,7 @@ interface Iprops {
 const TodoList = ({
   todos,
   todoAction,
+  isDarkMode,
   completedTodos,
   completedTodoAction,
 }: Iprops) => {
@@ -26,9 +30,9 @@ const TodoList = ({
     <>
       <div>
         <h4 className="heading">Pending</h4>
-        <div className="todo-list">
+        <StyledTodoList className="todo-list" isDarkMode={isDarkMode}>
           {todos?.length > 0 ? (
-            todos.map((todo, index) => {
+            todos.reverse().map((todo, index) => {
               return (
                 <div className="single-todo" key={index}>
                   <div className="todo-text">
@@ -57,11 +61,11 @@ const TodoList = ({
           ) : (
             <h4 className="no-todo">{NO_TODO_FOUND}</h4>
           )}
-        </div>
+        </StyledTodoList>
       </div>
       <div>
         <h4 className="heading">Completed</h4>
-        <div className="todo-list">
+        <StyledTodoList isDarkMode={isDarkMode} className="todo-list">
           {completedTodos?.length > 0 ? (
             completedTodos.map((todo, index) => {
               return (
@@ -84,7 +88,7 @@ const TodoList = ({
           ) : (
             <h4 className="no-todo">{NO_COMPLETED_TODO_FOUND}</h4>
           )}
-        </div>
+        </StyledTodoList>
       </div>
     </>
   );

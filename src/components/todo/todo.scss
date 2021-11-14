@@ -3,7 +3,10 @@
 
 .main-cnt {
   @include displayColumn;
+  @include transition();
   align-items: center;
+
+  // position: relative;
 
   .todo-input-cnt {
     margin: 10px;
@@ -12,7 +15,7 @@
     justify-content: space-between;
     align-items: center;
     .todo-input {
-      @include shadow($shadow);
+      @include transition();
       border: none;
       border-radius: 30px;
       outline: none;
@@ -20,13 +23,14 @@
       font-size: 25px;
       padding: 10px 20px;
       width: 520px;
+      ::placeholder {
+        color: $placeholderGrey;
+      }
     }
     .add-icon {
-      @include shadow($shadow);
       @include transition();
       border-radius: 50%;
       color: $lightGreen;
-      background-color: $white;
 
       cursor: pointer;
       &:hover {
@@ -48,10 +52,9 @@
   }
 
   .todo-list {
+    @include transition();
     @include displayColumn;
-    @include shadow($shadow);
     @include overflowY;
-    background-color: $white;
     margin: 10px;
     width: 600px;
     border-radius: 20px;

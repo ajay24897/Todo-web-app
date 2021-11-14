@@ -1,13 +1,38 @@
+import { useEffect, useState } from "react";
+import styled from "styled-components";
 
-import Todo from './components/todo';
-import "./scss/index.scss"
+import Todo from "./components/todo";
+import Toogler from "./components/toogler";
+import { colors } from "./constants/color";
+
+import "./scss/index.scss";
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    console.log(isDarkMode);
+  }, [isDarkMode]);
+
+  const handleDarkMode = (mode: boolean) => {
+    setIsDarkMode(mode);
+  };
+
   return (
-    <div className="App">
-     <Todo />
-    </div>
+    <StyledDiv className="App" isDarkMode={isDarkMode}>
+      <Todo isDarkMode={isDarkMode} />
+      <Toogler handleDarkMode={handleDarkMode} />
+    </StyledDiv>
   );
 }
 
 export default App;
+
+interface Iprops {
+  isDarkMode: Boolean;
+}
+
+const StyledDiv = styled.div<Iprops>`
+  background: ${(props) => (props.isDarkMode ? colors.darkBlue : colors.white)};
+  color: ${(props) => (props.isDarkMode ? colors.white : colors.black)};
+`;
