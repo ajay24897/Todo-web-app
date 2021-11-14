@@ -1,11 +1,11 @@
 ### `Packages`
 
-base - react & typescript
+base - react & typescript.
 
-icons - react-icons
-style - styled-components & sass
+icons - react-icons.
+style - styled-components & sass.
 
-other - react-toastify
+other - react-toastify.
 
 ### `Live Application`
 
