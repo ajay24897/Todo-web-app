@@ -32,7 +32,7 @@ const TodoList = ({
         <h4 className="heading">Pending</h4>
         <StyledTodoList className="todo-list" isDarkMode={isDarkMode}>
           {todos?.length > 0 ? (
-            todos.reverse().map((todo, index) => {
+            todos.map((todo, index) => {
               return (
                 <div className="single-todo" key={index}>
                   <div className="todo-text">

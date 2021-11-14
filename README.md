@@ -13,4 +13,4 @@ See the application [Todo-web-app](https://ajay24897.github.io/Todo-web-app/) .
 
 ### `Code`
 
-See the application [Todo-web-app](https://github.com/ajay24897/Todo-web-app) .
+See the code [Todo-web-app](https://github.com/ajay24897/Todo-web-app) .
