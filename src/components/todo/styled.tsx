@@ -28,4 +28,11 @@ export const StyleAddIcon = styled.div<Iprops>`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:hover {
+    box-shadow: ${(props) =>
+      props.isDarkMode
+        ? `0 2px 10px 4px ${colors.darkModeShadow}`
+        : `0 2px 10px 4px ${colors.shadow}`};
+  }
 `;

@@ -36,6 +36,9 @@
   font-size: 20px;
   cursor: pointer;
   color: $iconColor;
+}
+
+@mixin iconHover($hoverColor, $shadowColor) {
   &:hover {
     color: $hoverColor;
     @include hoverShadow($shadowColor);

@@ -33,14 +33,6 @@
       color: $lightGreen;
 
       cursor: pointer;
-      &:hover {
-        @include hoverShadow($shadow);
-        color: $darkGreen;
-        transform: scale(1.1);
-      }
-      &:active {
-        @include insetShadow($shadow);
-      }
     }
   }
 
@@ -100,6 +92,28 @@
 
 .hidden {
   opacity: 0;
+}
+
+@media screen and (min-device-width: 1024px) {
+  .completed {
+    @include iconHover($darkGreen, $shadow);
+  }
+  .edit {
+    @include iconHover($darkBlue, $shadow);
+  }
+  .delete {
+    @include iconHover($darkRed, $shadow);
+  }
+  .add-icon {
+    &:hover {
+      @include hoverShadow($shadow);
+      color: $darkGreen;
+      transform: scale(1.1);
+    }
+    &:active {
+      @include insetShadow($shadow);
+    }
+  }
 }
 
 @media screen and (max-device-width: 650px) {

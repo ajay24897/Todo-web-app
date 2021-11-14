@@ -3,7 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { IoIosAdd } from "react-icons/io";
 
 import TodoList from "./TodoList";
-import { COMPLETED, DELETE, EDIT, TOASTMSG } from "../../constants";
+import { COMPLETED, DELETE, EDIT, TOASTMSG } from "../../constants/string";
 import { capitalizeFirstLetter } from "../../commonFunctions";
 import { StyleAddIcon, StyledInput } from "./styled";
 
@@ -143,7 +143,7 @@ const Todo = ({ isDarkMode }: Iprops) => {
       <ToastContainer
         position="bottom-center"
         closeButton={true}
-        autoClose={3000}
+        autoClose={2000}
         limit={3}
       />
     </div>

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 import Todo from "./components/todo";
-import Toogler from "./components/toogler";
+import Toggler from "./components/toggler";
 import { colors } from "./constants/color";
 
 import "./scss/index.scss";
@@ -21,7 +21,7 @@ function App() {
   return (
     <StyledDiv className="App" isDarkMode={isDarkMode}>
       <Todo isDarkMode={isDarkMode} />
-      <Toogler handleDarkMode={handleDarkMode} />
+      <Toggler handleDarkMode={handleDarkMode} />
     </StyledDiv>
   );
 }

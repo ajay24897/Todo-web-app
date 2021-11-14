@@ -8,7 +8,7 @@ import {
   EDIT,
   NO_COMPLETED_TODO_FOUND,
   NO_TODO_FOUND,
-} from "../../constants";
+} from "../../constants/string";
 import { StyledTodoList } from "./styled";
 
 interface Iprops {

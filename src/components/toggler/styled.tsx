@@ -30,7 +30,7 @@ export const TogglerCnt = styled.div<Iprops>`
     width: 50%;
     height: 100%;
     border-radius: 50%;
-    background: #f2f2f2;
+    background: ${colors.lightWhite};
     z-index: -1;
     transition: all 0.3s;
   }

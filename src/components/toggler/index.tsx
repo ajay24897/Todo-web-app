@@ -7,7 +7,7 @@ interface Iprops {
   handleDarkMode: (mode: boolean) => void;
 }
 
-const Toogler = ({ handleDarkMode }: Iprops) => {
+const Toggler = ({ handleDarkMode }: Iprops) => {
   let [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
   useEffect(() => {
@@ -30,4 +30,4 @@ const Toogler = ({ handleDarkMode }: Iprops) => {
   );
 };
 
-export default Toogler;
+export default Toggler;
