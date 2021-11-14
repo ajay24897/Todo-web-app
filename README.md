@@ -1,4 +1,4 @@
-### `Packages Used`
+### `Packages`
 
 base - react & typescript
 
