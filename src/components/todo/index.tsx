@@ -115,7 +115,7 @@ const Todo = ({ isDarkMode }: Iprops) => {
 
   return (
     <div className="main-cnt">
-      <div className="todo-input-cnt">
+      <div className="todo-input-cnt" data-aos="fade-down">
         <StyledInput
           isDarkMode={isDarkMode}
           value={todoInput}

@@ -19,8 +19,9 @@ export const TogglerCnt = styled.div<Iprops>`
   background: ${(props) => (props.isDarkMode ? colors.darkBlue : colors.white)};
   box-shadow: ${(props) =>
     props.isDarkMode
-      ? `0 2px 10px 4px ${colors.darkModeShadow}`
-      : `0 2px 10px 4px ${colors.shadow}`};
+      ? `0 2px 5px 2px ${colors.darkModeShadow}`
+      : `0 2px 5px 2px ${colors.shadow}`};
+  z-index: 10;
 
   &:before {
     content: "";

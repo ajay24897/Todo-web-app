@@ -2,7 +2,7 @@
   box-shadow: 0 2px 5px 2px $color;
 }
 @mixin hoverShadow($color) {
-  box-shadow: 0 2px 10px 4px $color;
+  box-shadow: 0 2px 5px 2px $color;
 }
 @mixin insetShadow($color) {
   box-shadow: inset 0 2px 5px 2px $color;

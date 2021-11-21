@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 
 import { TogglerCnt } from "./styled";
+import { colors } from "./../../constants/color";
 
 interface Iprops {
   handleDarkMode: (mode: boolean) => void;
@@ -17,12 +18,12 @@ const Toggler = ({ handleDarkMode }: Iprops) => {
   return (
     <TogglerCnt isDarkMode={isDarkMode}>
       <BsFillSunFill
-        color="#fc9601"
+        color={colors.sun}
         size={25}
         onClick={() => setIsDarkMode(false)}
       />
       <BsFillMoonFill
-        color="#22395d"
+        color={colors.darkBlue}
         size={22}
         onClick={() => setIsDarkMode(true)}
       />

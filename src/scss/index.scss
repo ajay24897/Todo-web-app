@@ -10,6 +10,9 @@
   @include transition();
   height: 100vh;
   width: 100vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
 }
 
 ::-webkit-scrollbar {
