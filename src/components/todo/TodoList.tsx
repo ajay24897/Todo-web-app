@@ -41,6 +41,7 @@ const TodoList = ({
             onClick={() => {
               setIsToogledPending(!isToogledPending);
             }}
+            data-testid="arrow-pending"
           >
             <StyledArrowIcon isDarkMode={isDarkMode} />
           </StyledArrowCnt>
@@ -58,15 +59,18 @@ const TodoList = ({
                       <AiOutlineCheck
                         className={COMPLETED}
                         size={30}
+                        data-testid={"right-icon " + index}
                         onClick={() => todoAction(COMPLETED, index)}
                       />
                       <MdOutlineModeEdit
                         className={EDIT}
+                        data-testid={"edit-icon " + index}
                         size={30}
                         onClick={() => todoAction(EDIT, index)}
                       />
                       <RiDeleteBinLine
                         className={DELETE}
+                        data-testid={"delete-icon " + index}
                         size={30}
                         onClick={() => todoAction(DELETE, index)}
                       />
@@ -93,6 +97,7 @@ const TodoList = ({
             onClick={() => {
               setIsToogledCompleted(!isToogledCompleted);
             }}
+            data-testid="arrow-completed"
           >
             <StyledArrowIcon isDarkMode={isDarkMode} />
           </StyledArrowCnt>
@@ -113,6 +118,7 @@ const TodoList = ({
                       <RiDeleteBinLine
                         className={DELETE}
                         size={30}
+                        data-testid={"delete-completed-icon " + index}
                         onClick={() => completedTodoAction(DELETE, index)}
                       />
                     </div>

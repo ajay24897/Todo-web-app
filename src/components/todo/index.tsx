@@ -65,7 +65,7 @@ const Todo = ({ isDarkMode }: Iprops) => {
   };
 
   const onKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.charCode === 13) {
+    if (e.code === "Enter") {
       hadelAddClick();
     }
   };
@@ -128,6 +128,7 @@ const Todo = ({ isDarkMode }: Iprops) => {
         <StyleAddIcon
           isDarkMode={isDarkMode}
           className="add-icon"
+          data-testid="add-icon"
           onClick={() => hadelAddClick()}
         >
           <IoIosAdd size="50" />
