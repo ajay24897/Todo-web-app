@@ -1,6 +1,6 @@
 {
-  "name": "Todo-web-app",
-  "version": "0.1.0",
+  "name": "todo-web-app",
+  "version": "1.0.0",
   "private": true,
   "homepage": "https://ajay24897.github.io/Todo-web-app",
   "dependencies": {
